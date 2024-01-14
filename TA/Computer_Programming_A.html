@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Blurred Background</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            animation: changeBackground 15s infinite;
+            transition: background-image 2s ease-in-out;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Apply blur only to the background images */
+        /* body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px);
+        } */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px); /* Adjust the blur amount as needed */
+            transform: translate3d(0, 0, 0); /* Trigger hardware acceleration */
+        }
+
+        @keyframes changeBackground {
+            0%, 100% { background-image: url('backgrounds\\1.jpg'); }
+            33.33% { background-image: url('backgrounds\\2.jpg'); }
+            66.66% { background-image: url('backgrounds\\3.jpg'); }
+        }
+        /* header {
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        } */
+        header {
+            /* background-color: #3498db; */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        /* 
+        h1 {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        } 
+        */
+        h1 {
+            /* position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+            color: white;
+            /* font-family: 'Arial', sans-serif;
+            text-align: center; */
+        }
+
+        h2, h3 {
+            color: #1eb546;
+        }
+        p {
+        line-height: 2.0;
+        color: #f31111; /* Set paragraph text color */
+        font-size: 18px; /* Adjust the font size as needed */
+        }
+        a {
+        line-height: 2.0;
+        color: #f31111; /* Set paragraph text color */
+        font-size: 18px; /* Adjust the font size as needed */
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            /* background-color: #3498db; */
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Computer Programming A: Autumn Semester 2023</h1>
+    </header>
+
+    <section>
+        <h2>Problem Solving Class</h2>
+        <p><a href="Exercise.pdf">Reference</a></p>
+
+        <h2>Some Tips</h2>
+        <p><a href="Command_Line_Arguments.pdf">Command Line Arguments</a></p>
+        <p><a href="replace.pdf">Two problems</a></p>
+        
+    </section>
+
+    <footer>
+        &copy; 2024 Ming Yan
+    </footer>
+</body>
+</html>
